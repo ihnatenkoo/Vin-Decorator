@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-function App() {
+import Header from './components/Header/Header';
+import HomePage from './pages/HomePage';
+
+const App: FC = () => {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<h1>Hello Vin Decorator</h1>
-			</header>
-		</div>
+		<main>
+			<Header />
+			<section className="container">
+				<Routes>
+					<Route path="/" element={<HomePage />}></Route>
+					<Route path="/variables" element={<></>}></Route>
+					<Route path="/variables/:id" element={<></>}></Route>
+				</Routes>
+			</section>
+		</main>
 	);
-}
+};
 
 export default App;
