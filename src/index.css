@@ -5,7 +5,9 @@
 	--main-bg: #f9fafb;
 }
 
-* {
+*,
+::after,
+::before {
 	box-sizing: border-box;
 }
 
