@@ -12,12 +12,12 @@ export interface vinQueryResult {
 	VariableId: number;
 }
 
-export interface IState {
-	searchVin: ISearchVin;
-}
-
 interface ISearchVin {
 	response: vinQueryResponse;
 	isLoading: boolean;
 	isError: boolean;
+}
+export interface IState {
+	searchVin: ISearchVin;
+	recentSearches: Array<vinQueryResponse>;
 }

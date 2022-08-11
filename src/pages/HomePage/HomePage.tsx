@@ -1,13 +1,17 @@
 import React, { FC } from 'react';
-import SearchPanel from '../../components/SearchPanel/SearchPanel';
+
+import { SearchPanel, SearchInfo, ResentSearches } from '../../components/';
+
 import s from './HomePage.module.scss';
 
-const HomePage: FC = () => {
+export const HomePage: FC = () => {
 	return (
-		<section className={s.home}>
+		<div className={s.home}>
 			<SearchPanel />
-		</section>
+			<div className={s.home__searches}>
+				<SearchInfo />
+				<ResentSearches />
+			</div>
+		</div>
 	);
 };
-
-export default HomePage;

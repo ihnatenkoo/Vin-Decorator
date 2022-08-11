@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import s from './Header.module.scss';
 import cn from 'classnames';
 
-const Header: FC = () => {
+export const Header: FC = () => {
 	const { pathname } = useLocation();
 
 	return (
@@ -29,5 +29,3 @@ const Header: FC = () => {
 		</header>
 	);
 };
-
-export default Header;

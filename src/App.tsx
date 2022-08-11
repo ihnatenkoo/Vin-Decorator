@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Header from './components/Header/Header';
-import HomePage from './pages/HomePage/HomePage';
+import { HomePage } from './pages/';
+import { Header } from './components/';
 
 const App: FC = () => {
 	return (

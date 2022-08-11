@@ -1,0 +1,53 @@
+@import '../../css/mixins';
+
+.feature {
+	@include rounded-form;
+
+	margin-bottom: 15px;
+	width: 500px;
+	max-width: 100%;
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		cursor: pointer;
+
+		&_title,
+		&_btn {
+			color: var(--zinc);
+			transition: all 0.15s linear;
+		}
+	}
+	&__list {
+		height: 0;
+		overflow-y: hidden;
+
+		&.show {
+			height: 100%;
+		}
+
+		li {
+			padding: 4px 0;
+			display: flex;
+			align-items: flex-start;
+
+			span {
+				margin-top: 4px;
+				margin-right: 5px;
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.feature {
+		&__header {
+			&:hover &_title,
+			&:hover &_btn {
+				color: var(--gold);
+			}
+		}
+	}
+}

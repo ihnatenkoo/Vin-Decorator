@@ -1,10 +1,12 @@
 import React, { FC, useState, KeyboardEvent } from 'react';
-import { useAppDispatch } from '../../hooks/useAppDispatch';
+
 import { SEARCH_VIN } from '../../redux/vinDecorator.slice';
+
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 
 import s from './SearchPanel.module.scss';
 
-const SearchPanel: FC = () => {
+export const SearchPanel: FC = () => {
 	const [searchTerm, setSearchTerm] = useState('');
 
 	const dispatch = useAppDispatch();
@@ -12,11 +14,12 @@ const SearchPanel: FC = () => {
 	const searchHandler = (e: KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === 'Enter') {
 			dispatch(SEARCH_VIN(searchTerm));
+			setSearchTerm('');
 		}
 	};
 
 	return (
-		<div className={s.search}>
+		<section className={s.search}>
 			<input
 				type="text"
 				className={s.search__input}
@@ -30,8 +33,6 @@ const SearchPanel: FC = () => {
 					<span className="material-icons-outlined">close</span>
 				</button>
 			)}
-		</div>
+		</section>
 	);
 };
-
-export default SearchPanel;

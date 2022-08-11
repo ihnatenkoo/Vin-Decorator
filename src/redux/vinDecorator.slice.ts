@@ -25,6 +25,7 @@ const initialState: IState = {
 		isLoading: false,
 		isError: false,
 	},
+	recentSearches: [],
 };
 
 const vinDecoratorSlice = createSlice({
@@ -40,6 +41,7 @@ const vinDecoratorSlice = createSlice({
 			.addCase(
 				SEARCH_VIN.fulfilled,
 				(state, action: PayloadAction<vinQueryResponse>) => {
+					state.recentSearches.push(action.payload);
 					state.searchVin.response = action.payload;
 					state.searchVin.isLoading = false;
 				}

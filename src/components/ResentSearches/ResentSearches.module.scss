@@ -1,0 +1,20 @@
+.recent {
+	width: 500px;
+	max-width: 100%;
+
+	&__inner {
+		margin-top: 15px;
+	}
+
+	&__title {
+		color: var(--zinc);
+		font-size: 18px;
+		text-align: center;
+	}
+
+	&__warn {
+		color: var(--red-light);
+		font-style: italic;
+		text-align: center;
+	}
+}
