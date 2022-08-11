@@ -1,13 +1,17 @@
 import React, { FC, useState, KeyboardEvent } from 'react';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { SEARCH_VIN } from '../../redux/vinDecorator.slice';
 
 import s from './SearchPanel.module.scss';
 
 const SearchPanel: FC = () => {
 	const [searchTerm, setSearchTerm] = useState('');
 
+	const dispatch = useAppDispatch();
+
 	const searchHandler = (e: KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === 'Enter') {
-			console.log('pressed enter');
+			dispatch(SEARCH_VIN(searchTerm));
 		}
 	};
 
