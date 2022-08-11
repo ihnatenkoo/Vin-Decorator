@@ -1,6 +1,10 @@
+@import 'material-icons/iconfont/material-icons.css';
+
 :root {
 	--white: #ffffff;
+	--gray-light: #9ca3af;
 	--gray: #6b7280;
+	--gray-dark: #1f2937;
 	--gold: #fbbf24;
 	--main-bg: #f9fafb;
 }
@@ -48,4 +52,12 @@ article {
 a {
 	color: inherit;
 	text-decoration: inherit;
+}
+
+button {
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	outline: none;
 }
