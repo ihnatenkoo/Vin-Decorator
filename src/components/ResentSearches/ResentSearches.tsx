@@ -13,7 +13,7 @@ export const ResentSearches = () => {
 		<section className={s.recent}>
 			<h2 className={s.recent__title}>Resent Searches:</h2>
 			{recentSearches.length === 0 && (
-				<p className={s.recent__warn}>Search list is empty</p>
+				<p className={s.recent__empty}>Search list is empty</p>
 			)}
 
 			<div className={s.recent__inner}>

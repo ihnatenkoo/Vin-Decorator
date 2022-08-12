@@ -12,9 +12,8 @@
 		text-align: center;
 	}
 
-	&__warn {
-		color: var(--red-light);
-		font-style: italic;
+	&__empty {
+		color: var(--blue);
 		text-align: center;
 	}
 }
