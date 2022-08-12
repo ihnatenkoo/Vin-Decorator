@@ -41,7 +41,18 @@ const vinDecoratorSlice = createSlice({
 			.addCase(
 				SEARCH_VIN.fulfilled,
 				(state, action: PayloadAction<vinQueryResponse>) => {
-					state.recentSearches.push(action.payload);
+					if (
+						!state.recentSearches.some(
+							(item) => item.SearchCriteria === action.payload.SearchCriteria
+						)
+					) {
+						state.recentSearches.length === 5
+							? state.recentSearches.splice(0, 1)
+							: null;
+
+						state.recentSearches.push(action.payload);
+					}
+
 					state.searchVin.response = action.payload;
 					state.searchVin.isLoading = false;
 				}
