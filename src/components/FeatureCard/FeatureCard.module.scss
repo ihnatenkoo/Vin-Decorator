@@ -13,9 +13,8 @@
 		align-items: center;
 		cursor: pointer;
 
-		&_title,
-		&_btn {
-			color: var(--zinc);
+		&_title {
+			color: var(--blue);
 			transition: all 0.15s linear;
 		}
 	}
@@ -44,9 +43,8 @@
 @media screen and (min-width: 1200px) {
 	.feature {
 		&__header {
-			&:hover &_title,
-			&:hover &_btn {
-				color: var(--gold);
+			&:hover &_title {
+				color: var(--blue-dark);
 			}
 		}
 	}
