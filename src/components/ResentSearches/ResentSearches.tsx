@@ -7,7 +7,7 @@ import { FeatureCard } from '../../components/';
 import s from './ResentSearches.module.scss';
 
 export const ResentSearches = () => {
-	const { recentSearches } = useAppSelector((state) => state.reducer);
+	const { recentSearches } = useAppSelector((state) => state.search);
 
 	return (
 		<section className={s.recent}>
@@ -17,11 +17,11 @@ export const ResentSearches = () => {
 			)}
 
 			<div className={s.recent__inner}>
-				{recentSearches?.map((search) => (
+				{recentSearches?.map((data) => (
 					<FeatureCard
-						listItems={search.Results}
-						vinCode={search.SearchCriteria}
-						key={search.SearchCriteria}
+						listItems={data.Results}
+						vinCode={data.SearchCriteria}
+						key={data.SearchCriteria}
 						isOpen={false}
 					/>
 				))}

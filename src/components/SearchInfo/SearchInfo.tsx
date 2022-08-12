@@ -8,11 +8,9 @@ import s from './SearchInfo.module.scss';
 
 export const SearchInfo = () => {
 	const { Results: listItems, SearchCriteria: vinCode } = useAppSelector(
-		(state) => state.reducer.searchVin.response
+		(state) => state.search.searchVin
 	);
-	const { isLoading, isError } = useAppSelector(
-		(state) => state.reducer.searchVin
-	);
+	const { isLoading, isError } = useAppSelector((state) => state.search);
 
 	return (
 		<>

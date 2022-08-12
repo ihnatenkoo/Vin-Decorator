@@ -1,12 +1,12 @@
 import React, { FC, useState } from 'react';
 
-import { vinQueryResult } from '../../redux/types';
+import { IVinResult } from '../../redux/searchSlice/types';
 
 import cn from 'classnames';
 import s from './FeatureCard.module.scss';
 
 interface IFeaturesList {
-	listItems: Array<vinQueryResult>;
+	listItems: Array<IVinResult>;
 	vinCode: string;
 	isOpen: boolean;
 }

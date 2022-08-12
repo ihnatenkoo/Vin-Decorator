@@ -1,6 +1,6 @@
 import React, { FC, useState, KeyboardEvent } from 'react';
 
-import { SEARCH_VIN } from '../../redux/vinDecorator.slice';
+import { SEARCH_VIN } from '../../redux/searchSlice/search.slice';
 
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 

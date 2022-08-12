@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import reducer from '../vinDecorator.slice';
+import search from '../searchSlice/search.slice';
+import variables from '../variablesSlice/variables.slice';
 
 export const store = configureStore({
-	reducer: { reducer },
+	reducer: { search, variables },
 	devTools: process.env.NODE_ENV !== 'production',
 });
 
