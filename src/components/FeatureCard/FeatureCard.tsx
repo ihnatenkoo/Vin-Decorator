@@ -4,6 +4,7 @@ import { IVinResult } from '../../redux/searchSlice/types';
 
 import cn from 'classnames';
 import s from './FeatureCard.module.scss';
+import Scroll from '../ui/Scroll/Scroll';
 
 interface IFeaturesList {
 	listItems: Array<IVinResult>;
@@ -17,6 +18,13 @@ export const FeatureCard: FC<IFeaturesList> = ({
 	isOpen = false,
 }) => {
 	const [showList, setShowList] = useState<boolean>(isOpen);
+
+	const hasScroll =
+		listItems
+			.map((item) => {
+				if (item.Value) return item;
+			})
+			.filter((i) => i).length > 5;
 
 	const handleShow = (): void => {
 		setShowList((prevState) => !prevState);
@@ -33,19 +41,20 @@ export const FeatureCard: FC<IFeaturesList> = ({
 					</span>
 				</button>
 			</header>
-
-			<ul className={cn(s.feature__list, { [s.show]: showList })}>
-				{listItems?.map((item) => {
-					if (item.Value) {
-						return (
-							<li key={item.VariableId}>
-								<span className="material-icons-outlined">check</span>
-								{item.Variable}: {item.Value}
-							</li>
-						);
-					}
-				})}
-			</ul>
+			<Scroll hasScroll={hasScroll}>
+				<ul className={cn(s.feature__list, { [s.show]: showList })}>
+					{listItems?.map((item) => {
+						if (item.Value) {
+							return (
+								<li key={item.VariableId}>
+									<span className="material-icons-outlined">check</span>
+									{item.Variable}: {item.Value}
+								</li>
+							);
+						}
+					})}
+				</ul>
+			</Scroll>
 		</article>
 	);
 };

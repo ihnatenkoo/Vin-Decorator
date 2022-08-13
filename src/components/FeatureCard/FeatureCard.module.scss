@@ -2,28 +2,36 @@
 
 .feature {
 	@include rounded-form;
+	padding: 7px 9px 7px 20px;
 
 	margin-bottom: 15px;
 	width: 500px;
 	max-width: 100%;
+	position: relative;
 
 	&__header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		line-height: 1.7;
 		cursor: pointer;
 
 		&_title {
 			color: var(--blue);
 			transition: all 0.15s linear;
 		}
+
+		&_btn {
+			margin-left: 10px;
+			position: absolute;
+			top: 10px;
+			right: 0;
+		}
 	}
 	&__list {
+		padding-right: 10px;
 		height: 0;
-		overflow-y: hidden;
 
 		&.show {
-			height: 100%;
+			height: max-content;
+			max-height: 500px;
 		}
 
 		li {

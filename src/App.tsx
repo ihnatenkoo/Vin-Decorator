@@ -20,7 +20,7 @@ const App: FC = () => {
 							element={<VariableInfo />}
 						></Route>
 					</Routes>
-				</main>{' '}
+				</main>
 			</BrowserRouter>
 		</Provider>
 	);
