@@ -1,0 +1,35 @@
+.feature-card-enter {
+	opacity: 0;
+}
+
+.feature-card-enter-active {
+	animation: in 500ms linear;
+}
+
+.feature-card-enter-done {
+	opacity: 1;
+}
+
+.feature-card-exit-active {
+	animation: out 500ms ease-in;
+}
+
+@keyframes in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes out {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateX(50%);
+	}
+}

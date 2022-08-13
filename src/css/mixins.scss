@@ -4,3 +4,16 @@
 	border: 1px solid #e5e7eb;
 	box-shadow: 0px 3px 10px -8px #9ca3af;
 }
+
+@mixin in-animate {
+	animation: in 500ms linear forwards;
+
+	@keyframes in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+}

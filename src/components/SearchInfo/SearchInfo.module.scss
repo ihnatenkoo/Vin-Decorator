@@ -1,9 +1,14 @@
+@import '../../css/mixins.scss';
+
 .search {
 	margin-bottom: 30px;
 	width: 500px;
 	max-width: 100%;
 
 	&__inner {
+		@include in-animate;
+		opacity: 0;
+
 		margin-top: 15px;
 	}
 }
