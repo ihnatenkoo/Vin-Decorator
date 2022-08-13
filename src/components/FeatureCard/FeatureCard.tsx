@@ -20,12 +20,7 @@ export const FeatureCard: FC<IFeaturesList> = ({
 }) => {
 	const [showList, setShowList] = useState<boolean>(isOpen);
 
-	const hasScroll =
-		listItems
-			.map((item) => {
-				if (item.Value) return item;
-			})
-			.filter((i) => i).length > 5;
+	const hasScroll = listItems.filter((i) => i.Value).length > 5;
 
 	const handleShow = (): void => {
 		setShowList((prevState) => !prevState);
