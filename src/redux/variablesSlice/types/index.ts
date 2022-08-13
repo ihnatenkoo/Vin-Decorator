@@ -15,7 +15,6 @@ export interface IVariablesResult {
 
 export interface IState {
 	variables: IVariablesResponse;
-	variableInfo: IVariablesResult;
 	isLoading: boolean;
 	isError: boolean;
 }

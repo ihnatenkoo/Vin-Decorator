@@ -8,22 +8,23 @@ import s from './FeatureCard.module.scss';
 interface IFeaturesList {
 	listItems: Array<IVinResult>;
 	vinCode: string;
-	isOpen: boolean;
+	isOpen?: boolean;
 }
 
 export const FeatureCard: FC<IFeaturesList> = ({
 	listItems,
 	vinCode,
-	isOpen,
+	isOpen = false,
 }) => {
 	const [showList, setShowList] = useState<boolean>(isOpen);
 
+	const handleShow = (): void => {
+		setShowList((prevState) => !prevState);
+	};
+
 	return (
 		<article className={s.feature}>
-			<header
-				className={s.feature__header}
-				onClick={() => setShowList((prevState) => !prevState)}
-			>
+			<header className={s.feature__header} onClick={handleShow}>
 				<h3 className={s.feature__header_title}>{vinCode}</h3>
 
 				<button className={s.feature__header_btn}>

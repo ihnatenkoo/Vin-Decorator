@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useAppSelector } from '../../hooks';
 
@@ -6,7 +6,7 @@ import { FeatureCard, Spinner, Error, Title } from '../../components/';
 
 import s from './SearchInfo.module.scss';
 
-export const SearchInfo = () => {
+export const SearchInfo: FC = () => {
 	const { Results: listItems, SearchCriteria: vinCode } = useAppSelector(
 		(state) => state.search.searchVin
 	);
@@ -26,11 +26,7 @@ export const SearchInfo = () => {
 				<section className={s.search}>
 					<Title>Search Information:</Title>
 					<div className={s.search__inner}>
-						<FeatureCard
-							listItems={listItems}
-							vinCode={vinCode}
-							isOpen={true}
-						/>
+						<FeatureCard listItems={listItems} vinCode={vinCode} isOpen />
 					</div>
 				</section>
 			)}

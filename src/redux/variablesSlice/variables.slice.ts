@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { IState, IVariablesResponse, IVariablesResult } from './types';
+import { IState, IVariablesResponse } from './types';
 
 export const GET_VARIABLES = createAsyncThunk<IVariablesResponse>(
 	'variables/GET_DATA',
@@ -20,13 +20,6 @@ const initialState: IState = {
 		SearchCriteria: null,
 		Results: [],
 	},
-	variableInfo: {
-		DataType: '',
-		Description: '',
-		GroupName: '',
-		ID: null,
-		Name: '',
-	},
 	isLoading: false,
 	isError: false,
 };
@@ -34,11 +27,7 @@ const initialState: IState = {
 const variablesSlice = createSlice({
 	name: 'variables',
 	initialState,
-	reducers: {
-		SET_VARIABLE_INFO: (state, action: PayloadAction<IVariablesResult>) => {
-			state.variableInfo = action.payload;
-		},
-	},
+	reducers: {},
 	extraReducers(builder) {
 		builder
 			.addCase(GET_VARIABLES.pending, (state) => {
@@ -56,7 +45,5 @@ const variablesSlice = createSlice({
 	},
 });
 
-const { reducer, actions } = variablesSlice;
-
+const { reducer } = variablesSlice;
 export default reducer;
-export const { SET_VARIABLE_INFO } = actions;

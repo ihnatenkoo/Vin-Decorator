@@ -5,10 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 
 import { Spinner, Title, Error } from '../../components';
 
-import {
-	GET_VARIABLES,
-	SET_VARIABLE_INFO,
-} from '../../redux/variablesSlice/variables.slice';
+import { GET_VARIABLES } from '../../redux/variablesSlice/variables.slice';
 
 import s from './VariablesPage.module.scss';
 
@@ -20,7 +17,7 @@ export const VariablesPage: FC = () => {
 	);
 
 	useEffect(() => {
-		dispatch(GET_VARIABLES());
+		if (!variables.Count) dispatch(GET_VARIABLES());
 	}, []);
 
 	if (isLoading) return <Spinner />;
@@ -34,7 +31,7 @@ export const VariablesPage: FC = () => {
 				</Title>
 				<ul className={s.variables__list}>
 					{variables.Results.map((item) => (
-						<li key={item.ID} onClick={() => dispatch(SET_VARIABLE_INFO(item))}>
+						<li key={item.ID}>
 							<Link to={`/variables/${item.ID}`}>{item.Name}</Link>
 						</li>
 					))}
