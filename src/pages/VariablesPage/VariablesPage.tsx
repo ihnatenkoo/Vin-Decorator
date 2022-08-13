@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
 
-import { Spinner, Title, Error } from '../../components';
+import { Spinner, Title, Error, Scroll } from '../../components';
 
 import { GET_VARIABLES } from '../../redux/variablesSlice/variables.slice';
 
@@ -29,13 +29,15 @@ export const VariablesPage: FC = () => {
 				<Title className={s.variables__title}>
 					All Variables ({variables.Count})
 				</Title>
-				<ul className={s.variables__list}>
-					{variables.Results.map((item) => (
-						<li key={item.ID}>
-							<Link to={`/variables/${item.ID}`}>{item.Name}</Link>
-						</li>
-					))}
-				</ul>
+				<Scroll isVisible>
+					<ul className={s.variables__list}>
+						{variables.Results.map((item) => (
+							<li key={item.ID}>
+								<Link to={`/variables/${item.ID}`}>{item.Name}</Link>
+							</li>
+						))}
+					</ul>
+				</Scroll>
 			</div>
 		</div>
 	);

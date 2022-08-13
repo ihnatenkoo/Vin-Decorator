@@ -4,7 +4,7 @@ import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 
 interface IScroll extends React.HTMLAttributes<HTMLDivElement> {
 	customOtp?: OverlayScrollbars.Options;
-	hasScroll?: boolean;
+	isVisible?: boolean;
 }
 
 const opt: OverlayScrollbars.Options = {
@@ -15,8 +15,12 @@ const opt: OverlayScrollbars.Options = {
 	},
 };
 
-const Scroll: FC<IScroll> = ({ children, customOtp, hasScroll = false }) => {
-	if (!hasScroll)
+export const Scroll: FC<IScroll> = ({
+	children,
+	customOtp,
+	isVisible = false,
+}) => {
+	if (!isVisible)
 		return (
 			<OverlayScrollbarsComponent
 				options={{ scrollbars: { visibility: 'hidden' } }}
@@ -30,5 +34,3 @@ const Scroll: FC<IScroll> = ({ children, customOtp, hasScroll = false }) => {
 		</OverlayScrollbarsComponent>
 	);
 };
-
-export default Scroll;

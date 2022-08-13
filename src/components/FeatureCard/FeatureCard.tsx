@@ -2,9 +2,10 @@ import React, { FC, useState } from 'react';
 
 import { IVinResult } from '../../redux/searchSlice/types';
 
+import { Scroll } from '../../components';
+
 import cn from 'classnames';
 import s from './FeatureCard.module.scss';
-import Scroll from '../ui/Scroll/Scroll';
 
 interface IFeaturesList {
 	listItems: Array<IVinResult>;
@@ -41,7 +42,7 @@ export const FeatureCard: FC<IFeaturesList> = ({
 					</span>
 				</button>
 			</header>
-			<Scroll hasScroll={hasScroll}>
+			<Scroll isVisible={hasScroll}>
 				<ul className={cn(s.feature__list, { [s.show]: showList })}>
 					{listItems?.map((item) => {
 						if (item.Value) {
