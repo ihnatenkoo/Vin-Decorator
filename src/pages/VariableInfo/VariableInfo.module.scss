@@ -1,7 +1,6 @@
 .variable {
 	margin: 40px auto 0;
-	width: 500px;
-	max-width: 100%;
+	width: 85%;
 
 	&__back {
 		margin-bottom: 30px;
@@ -26,6 +25,7 @@
 		margin: 10px auto 0;
 
 		line-height: 1.4;
+		text-align: center;
 
 		&_title {
 			margin-bottom: 7px;
@@ -37,5 +37,15 @@
 		color: var(--blue);
 		text-align: center;
 		font-weight: 600;
+	}
+}
+
+@media screen and (min-width: 575px) {
+	.variable {
+		width: 500px;
+
+		&__article {
+			text-align: left;
+		}
 	}
 }

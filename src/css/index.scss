@@ -1,7 +1,7 @@
 @import 'material-icons/iconfont/material-icons.css';
 @import 'overlayscrollbars/css/OverlayScrollbars.min.css';
 @import './animations.scss';
-@import './scroll.css';
+@import './scroll.scss';
 
 :root {
 	--white: #ffffff;
@@ -33,6 +33,18 @@ body {
 	background-color: var(--main-bg);
 	font-size: 16px;
 	line-height: 1.2;
+	overflow-x: hidden;
+
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+	&::-webkit-scrollbar-track {
+		background: rgb(221, 216, 216);
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: rgb(107 114 128);
+		border-radius: 20px;
+	}
 }
 
 .container {
