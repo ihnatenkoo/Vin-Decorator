@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useAppSelector } from '../../hooks';
 
-import { FeatureCard } from '../../components/';
+import { Title, FeatureCard } from '../../components/';
 
 import s from './ResentSearches.module.scss';
 
@@ -11,7 +11,7 @@ export const ResentSearches = () => {
 
 	return (
 		<section className={s.recent}>
-			<h2 className={s.recent__title}>Resent Searches:</h2>
+			<Title>Resent Searches:</Title>
 			{recentSearches.length === 0 && (
 				<p className={s.recent__empty}>Search list is empty</p>
 			)}

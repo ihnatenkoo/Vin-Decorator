@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useAppSelector } from '../../hooks';
 
-import { FeatureCard, Spinner, Error } from '../../components/';
+import { FeatureCard, Spinner, Error, Title } from '../../components/';
 
 import s from './SearchInfo.module.scss';
 
@@ -12,14 +12,19 @@ export const SearchInfo = () => {
 	);
 	const { isLoading, isError } = useAppSelector((state) => state.search);
 
+	if (isLoading)
+		return (
+			<div style={{ width: '500px' }}>
+				<Spinner />
+			</div>
+		);
+	if (isError) return <Error />;
+
 	return (
 		<>
-			{isLoading && <Spinner />}
-			{isError && <Error />}
-
-			{!isError && !isLoading && listItems?.length > 0 && (
+			{listItems?.length > 0 && (
 				<section className={s.search}>
-					<h2 className={s.search__title}>Search Information:</h2>
+					<Title>Search Information:</Title>
 					<div className={s.search__inner}>
 						<FeatureCard
 							listItems={listItems}

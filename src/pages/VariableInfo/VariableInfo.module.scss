@@ -1,0 +1,41 @@
+.variable {
+	margin: 40px auto 0;
+	width: 500px;
+	max-width: 100%;
+
+	&__back {
+		margin-bottom: 30px;
+		display: flex;
+		align-items: center;
+		font-style: italic;
+
+		span {
+			padding-right: 3px;
+			transition: all 0.15s linear;
+		}
+
+		&:hover span {
+			transform: translateX(-5px);
+		}
+		&:hover a {
+			text-decoration: underline;
+		}
+	}
+
+	&__article {
+		margin: 10px auto 0;
+
+		line-height: 1.4;
+
+		&_title {
+			margin-bottom: 7px;
+			color: var(--blue-dark);
+		}
+	}
+
+	&__empty {
+		color: var(--blue);
+		text-align: center;
+		font-weight: 600;
+	}
+}

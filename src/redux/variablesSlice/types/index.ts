@@ -9,12 +9,13 @@ export interface IVariablesResult {
 	DataType: string;
 	Description: string;
 	GroupName: string | null;
-	ID: number;
+	ID: number | null;
 	Name: string;
 }
 
 export interface IState {
 	variables: IVariablesResponse;
+	variableInfo: IVariablesResult;
 	isLoading: boolean;
 	isError: boolean;
 }

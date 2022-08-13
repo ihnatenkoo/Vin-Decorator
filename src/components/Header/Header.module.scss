@@ -1,4 +1,5 @@
 .header {
+	margin-bottom: 40px;
 	padding: 0 20px;
 	color: var(--white);
 	display: flex;
@@ -14,13 +15,23 @@
 
 	&__nav {
 		&_item {
-			transition: all 0.15s linear;
-			&:hover,
-			&.active {
-				color: var(--gold);
-			}
 			&:first-child {
 				margin-right: 10px;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.header {
+		&__nav {
+			&_item {
+				transition: all 0.15s linear;
+
+				&:hover,
+				&.active {
+					color: var(--gold);
+				}
 			}
 		}
 	}

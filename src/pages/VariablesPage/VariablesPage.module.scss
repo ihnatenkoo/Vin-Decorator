@@ -1,0 +1,44 @@
+.variables {
+	&__inner {
+		padding: 0 20px;
+		margin: 0 auto;
+		width: 500px;
+		max-width: 100%;
+
+		padding: 0;
+		width: 50%;
+	}
+
+	&__title {
+		text-align: left;
+	}
+
+	&__list {
+		margin-top: 10px;
+
+		li {
+			margin-bottom: 2px;
+		}
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.variables {
+		&__list {
+			li:hover {
+				color: var(--blue-dark);
+				font-weight: 700;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.variables {
+		&__inner {
+			padding: 0 20px;
+			width: 500px;
+			max-width: 100%;
+		}
+	}
+}

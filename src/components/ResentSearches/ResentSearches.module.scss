@@ -6,14 +6,9 @@
 		margin-top: 15px;
 	}
 
-	&__title {
-		color: var(--zinc);
-		font-size: 18px;
-		text-align: center;
-	}
-
 	&__empty {
 		color: var(--blue);
+		font-weight: 600;
 		text-align: center;
 	}
 }
