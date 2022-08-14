@@ -11,7 +11,22 @@
 }
 
 .feature-card-exit-active {
-	animation: out 500ms ease-in;
+	animation: out-right 500ms ease-in;
+}
+
+.form-response-enter-active {
+	animation: out 2000ms linear;
+}
+
+.form-response-enter-done {
+	opacity: 0;
+}
+.form-response-exit-active {
+	animation: out 2000ms linear;
+}
+
+.form-response-exit-done {
+	opacity: 0;
 }
 
 @keyframes in {
@@ -24,6 +39,20 @@
 }
 
 @keyframes out {
+	0% {
+		opacity: 1;
+	}
+
+	75% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes out-right {
 	from {
 		opacity: 1;
 		transform: translateX(0);

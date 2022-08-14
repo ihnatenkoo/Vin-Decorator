@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { useAppSelector } from '../../hooks';
-import { clearTextFromMarkup } from '../../utils/clearTextFromMarkup';
+import { clearTextFromMarkup } from '../../utils/';
 
 import { Title } from '../../components';
 

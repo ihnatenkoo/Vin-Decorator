@@ -2,31 +2,82 @@
 
 .search {
 	margin: 0 auto;
-	position: relative;
-	width: 500px;
-	max-width: 95%;
-	text-align: center;
+	max-width: 100%;
+	display: flex;
+	justify-content: center;
 
-	&__input {
-		@include rounded-form;
+	&__form {
+		width: 635px;
+		max-width: 100%;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		position: relative;
 
-		color: var(--gray-dark);
-		display: inline-block;
-		width: 100%;
-
-		&::placeholder {
-			color: var(--gray-light);
+		&_wrapper {
+			margin-bottom: 20px;
+			margin-right: 12px;
+			width: 500px;
+			max-width: 95%;
+			position: relative;
 		}
-		&:focus {
-			outline-color: var(--gray);
+
+		&_input {
+			@include rounded-form;
+
+			width: 100%;
+			display: inline-block;
+			color: var(--gray-dark);
+
+			&::placeholder {
+				color: var(--gray-light);
+			}
+			&:focus {
+				outline-color: var(--gray);
+			}
+		}
+
+		&_btn {
+			@include rounded-form;
+
+			min-width: 180px;
+			height: 37px;
+
+			background-color: var(--gray-light);
+			color: var(--white);
+		}
+
+		&_warn {
+			position: absolute;
+			left: 10px;
+			bottom: -20px;
+
+			color: var(--red-light);
+			font-style: italic;
+		}
+
+		&_response {
+			opacity: 0;
+			position: absolute;
+			left: 10px;
+			bottom: -20px;
+
+			color: var(--blue);
+			font-style: italic;
+
+			animation: out 2s linear forwards;
 		}
 	}
 
 	&__clear {
-		color: var(--gray-dark);
+		color: var(--gray-light);
+		width: 24px;
+		height: 24px;
+		cursor: pointer;
+
 		position: absolute;
 		top: 50%;
-		right: 5px;
+		right: 10px;
 		transform: translateY(-50%);
 
 		animation: in 0.5s;
@@ -40,6 +91,24 @@
 	}
 }
 
+@media screen and (min-width: 769px) {
+	.search {
+		&__form {
+			&_wrapper {
+				margin-bottom: 0;
+			}
+			&_btn {
+				min-width: 120px;
+				transition: all 0.15s linear;
+
+				&:hover {
+					background-color: #b1b4b9;
+				}
+			}
+		}
+	}
+}
+
 @keyframes in {
 	from {
 		opacity: 0;
@@ -48,6 +117,6 @@
 
 	to {
 		opacity: 1;
-		right: 5px;
+		right: 10px;
 	}
 }
