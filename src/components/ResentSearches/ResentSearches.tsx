@@ -1,5 +1,4 @@
-import React, { FC } from 'react';
-
+import React, { FC, useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import { useAppSelector } from '../../hooks';
@@ -10,6 +9,8 @@ import s from './ResentSearches.module.scss';
 
 export const ResentSearches: FC = () => {
 	const { recentSearches } = useAppSelector((state) => state.search);
+
+	const [selectedItem, setSelectedItem] = useState<string>('');
 
 	return (
 		<section className={s.recent}>
@@ -30,6 +31,8 @@ export const ResentSearches: FC = () => {
 								<FeatureCard
 									listItems={data.Results}
 									vinCode={data.SearchCriteria}
+									selectedItem={selectedItem}
+									setSelectedItem={setSelectedItem}
 									key={data.SearchCriteria}
 								/>
 							</CSSTransition>

@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 
 import { IVinResult } from '../../redux/searchSlice/types';
 
@@ -10,35 +10,41 @@ import s from './FeatureCard.module.scss';
 interface IFeaturesList {
 	listItems: Array<IVinResult>;
 	vinCode: string;
-	isOpen?: boolean;
+	selectedItem?: string;
+	setSelectedItem?: (id: string) => void;
 }
 
 export const FeatureCard: FC<IFeaturesList> = ({
 	listItems,
 	vinCode,
-	isOpen = false,
+	selectedItem,
+	setSelectedItem,
 }) => {
-	const [showList, setShowList] = useState<boolean>(isOpen);
-
 	const hasScroll = listItems.filter((i) => i.Value).length > 5;
 
-	const handleShow = (): void => {
-		setShowList((prevState) => !prevState);
+	const handleShow = (id: string): void => {
+		if (!setSelectedItem) return;
+
+		id === selectedItem ? setSelectedItem('') : setSelectedItem(id);
 	};
 
 	return (
 		<article className={s.feature}>
-			<header className={s.feature__header} onClick={handleShow}>
+			<header className={s.feature__header} onClick={() => handleShow(vinCode)}>
 				<h3 className={s.feature__header_title}>{vinCode}</h3>
 
 				<button className={s.feature__header_btn}>
 					<span className="material-icons-outlined">
-						{showList ? 'expand_less' : 'expand_more'}
+						{selectedItem === vinCode ? 'expand_less' : 'expand_more'}
 					</span>
 				</button>
 			</header>
 			<Scroll isVisible={hasScroll}>
-				<ul className={cn(s.feature__list, { [s.show]: showList })}>
+				<ul
+					className={cn(s.feature__list, {
+						[s.show]: selectedItem === vinCode,
+					})}
+				>
 					{listItems?.map((item) => {
 						if (item.Value) {
 							return (

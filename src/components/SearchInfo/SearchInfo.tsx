@@ -26,7 +26,11 @@ export const SearchInfo: FC = () => {
 				<section className={s.search}>
 					<Title>Search Information:</Title>
 					<div className={s.search__inner}>
-						<FeatureCard listItems={listItems} vinCode={vinCode} isOpen />
+						<FeatureCard
+							listItems={listItems}
+							vinCode={vinCode}
+							selectedItem={vinCode}
+						/>
 					</div>
 				</section>
 			)}
