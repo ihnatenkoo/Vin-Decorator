@@ -15,7 +15,7 @@
 		position: relative;
 
 		&_wrapper {
-			margin-bottom: 20px;
+			margin-bottom: 25px;
 			margin-right: 12px;
 			width: 500px;
 			max-width: 95%;
@@ -50,7 +50,7 @@
 		&_warn {
 			position: absolute;
 			left: 10px;
-			bottom: -20px;
+			bottom: -22px;
 
 			color: var(--red-light);
 			font-style: italic;
@@ -58,12 +58,15 @@
 
 		&_response {
 			opacity: 0;
+			width: 100%;
 			position: absolute;
-			left: 10px;
-			bottom: -20px;
+			left: 50%;
+			bottom: -22px;
+			transform: translateX(-50%);
 
 			color: var(--blue);
 			font-style: italic;
+			text-align: center;
 
 			animation: out 2s linear forwards;
 		}
@@ -97,6 +100,13 @@
 			&_wrapper {
 				margin-bottom: 0;
 			}
+
+			&_response {
+				left: 10px;
+				transform: translateX(0);
+				text-align: left;
+			}
+
 			&_btn {
 				min-width: 120px;
 				transition: all 0.15s linear;

@@ -58,25 +58,26 @@ export const SearchPanel: FC = () => {
 							<span className="material-icons-outlined">close</span>
 						</div>
 					)}
+					<CSSTransition
+						in={showRespMsg}
+						timeout={2000}
+						classNames="form-response"
+						mountOnEnter
+						unmountOnExit
+					>
+						<p className={s.search__form_response}>
+							{sliceText(responseMessage)}
+						</p>
+					</CSSTransition>
+
+					<p className={s.search__form_warn}>
+						{errors.vin?.message?.toString()}
+					</p>
 				</div>
 
 				<button type="submit" className={s.search__form_btn}>
 					Search
 				</button>
-
-				<CSSTransition
-					in={showRespMsg}
-					timeout={2000}
-					classNames="form-response"
-					mountOnEnter
-					unmountOnExit
-				>
-					<p className={s.search__form_response}>
-						{sliceText(responseMessage)}
-					</p>
-				</CSSTransition>
-
-				<p className={s.search__form_warn}>{errors.vin?.message?.toString()}</p>
 			</form>
 		</section>
 	);
